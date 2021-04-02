@@ -60,7 +60,7 @@ def calculate_time(size, speed, flag):
         _seconds_left = _total_seconds
         estimated_time(_days_left, _hours_left, _minutes_left, _seconds_left)
     except ZeroDivisionError:
-        print("Maybe there is an error with your input... Or the file size is Zero, or you don't have internet connection :/\n Try again!")
+        print("\nIt looks like you don't have internet connection :/ Your time left is ∞ ! \n\t Try again!")
         if __name__ == '__main__':
             main()
 
