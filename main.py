@@ -60,9 +60,8 @@ def calculate_time(size, speed, flag):
         _seconds_left = _total_seconds
         estimated_time(_days_left, _hours_left, _minutes_left, _seconds_left)
     except ZeroDivisionError:
-        print("\nIt looks like you don't have internet connection :/ Your time left is ∞ ! \n\t Try again!")
-        if __name__ == '__main__':
-            main()
+        print("\nIt looks like you don't have internet connection :/ Your time left is ∞ !\nWant to try again?")
+        try_again()
 
 def estimated_time(days, hours, minutes, seconds):
     print(f'\n\tTime left for your file to download: {int(days)} Day(s) -- '
