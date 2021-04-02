@@ -42,23 +42,27 @@ def get_download_speed(size, flag):
 
 
 def calculate_time(size, speed, flag):
-    if flag:
-        _total_seconds = (size * 1024) / speed
-    else:
-        _total_seconds = size / speed
+    try:
+        if flag:
+            _total_seconds = (size * 1024) / speed
+        else:
+            _total_seconds = size / speed
 
-    _days_left = _total_seconds // (24 * 3600)
-    _total_seconds = _total_seconds % (24 * 3600)
+        _days_left = _total_seconds // (24 * 3600)
+        _total_seconds = _total_seconds % (24 * 3600)
 
-    _hours_left = _total_seconds // 3600
-    _total_seconds %= 3600
+        _hours_left = _total_seconds // 3600
+        _total_seconds %= 3600
 
-    _minutes_left = _total_seconds // 60
-    _total_seconds %= 60
+        _minutes_left = _total_seconds // 60
+        _total_seconds %= 60
 
-    _seconds_left = _total_seconds
-    estimated_time(_days_left, _hours_left, _minutes_left, _seconds_left)
-
+        _seconds_left = _total_seconds
+        estimated_time(_days_left, _hours_left, _minutes_left, _seconds_left)
+    except ZeroDivisionError:
+        print("Maybe there is an error with your input... Or the file size is Zero, or you don't have internet connection :/\n Try again!")
+        if __name__ == '__main__':
+            main()
 
 def estimated_time(days, hours, minutes, seconds):
     print(f'\n\tTime left for your file to download: {int(days)} Day(s) -- '
